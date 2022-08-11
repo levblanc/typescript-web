@@ -27,17 +27,31 @@ export class Model<T extends HasId> {
     private sync: Sync<T>
   ) {}
 
-  get on() {
-    return this.events.on;
-  }
+  // Previously in User class 
+  // (check git diff on commit 70d9a73e64ecb9f3b7b8e3f7f2f281e5dc6c1adb)
+  // `attributes` was init inside class constructor
+  //  constructor(attrs: UserProps) {
+  //   this.attributes = new Attributes<UserProps>(attrs);
+  // }
+  // when converted to JS, method assignments will come 
+  // before constructor initializations 
+  // and thus throw error when refering to `this.attributes` like following:
+  // get = this.attributes.get;
 
-  get trigger() {
-    return this.events.trigger;
-  }
+  // get on() {
+  //   return this.events.on;
+  // }
+  on = this.events.on;
 
-  get get() {
-    return this.attributes.get;
-  }
+  // get trigger() {
+  //   return this.events.trigger;
+  // }
+  trigger = this.events.trigger;
+
+  // get get() {
+  //   return this.attributes.get;
+  // }
+  get = this.attributes.get;
 
   set(update: T): void {
     this.attributes.set(update);
