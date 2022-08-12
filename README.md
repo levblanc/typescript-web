@@ -1,5 +1,7 @@
 # typescript-web
 
+Implemented a simple web framework with Model & View.
+
 ## Quick Start
 
 ```zsh
@@ -17,3 +19,10 @@ npm i -g json-server
 npm run start:db
 # Server is up at: http://localhost:3000
 ```
+
+---
+
+Course:
+[Typescript: The Complete Developer's Guide](https://www.udemy.com/course/typescript-the-complete-developers-guide/)
+
+Section 13: Let's Build a Web Framework
